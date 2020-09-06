@@ -1,0 +1,48 @@
+def sal():
+    try:
+        time = float(input('Введите количество часов >>> '))
+        wage = int(input('Введите ставку сотрудника в  один час >>> '))
+        prize = int(input('Введите сумму премии >>> '))
+        res = time * wage + prize
+        print(f'Заработная плата сотрудника  {res}')
+    except ValueError:
+        return print('Введите число')
+sal()
+
+########
+
+print(f'Числа от 20 до 240 кратные 20 или 21 - {[el for el in range(20, 241) if el % 20 == 0 or el % 21 == 0]}')
+
+########
+
+my_numbers = [1, 4, 4, 2, 3, 2, 8, 10, 8, 5]
+my_new_numbers = [el for el in my_numbers if my_numbers.count(el) < 2]
+print(my_new_numbers)
+
+########
+
+from functools import reduce
+
+def my_func(el_p, el):
+    return el_p * el
+
+print(f'Список четных значений {[el for el in range(99, 1001) if el % 2 == 0]}')
+print(f'Результат перемножения {reduce(my_func, [el for el in range(99, 1001) if el % 2 == 0])}')
+
+########
+
+from itertools import count
+from math import factorial
+
+def fibo_gen():
+    for el in count(1):
+        yield factorial(el)
+
+gen = fibo_gen()
+x = 0
+for i in gen:
+    if x < 15:
+        print(i)
+        x += 1
+    else:
+        break 
